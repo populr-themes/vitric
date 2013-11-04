@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Name of yur theme -->
+  <title>Vitricity</title>
+  <palette class="palette-default" name="Blue" preview="#2E90D1">
+  <palette class="palette-green" name="Green" preview="#9ACD32">
+  <palette class="palette-bluegreen" name="Blue Green" preview="#239DB3">
+  <palette class="palette-red" name="Red" preview="#DC143C">
+  <palette class="palette-orange" name="Orange" preview="#FF8C00">
+  <palette class="palette-pink" name="Pink" preview="#FF69B4">
+  <palette class="palette-custom" preview="custom">
+<!--  <palette class="palette-custom" name="Custom" preview="#DF151A,#FD8603,#F4F328,#00DA3C,#00CBE7"> -->
+    
+  <!-- Add any styles your theme requires here -->
+  <link rel="stylesheet/less" type="text/css" href="/styles/main.less">
+
+  <!-- This script loads the Populr theming engine. Populr will automatically 
+       remove it at runtime. -->
+  <script src="http://populr.me/assets/developers/themer.js"></script>
+
+  <!-- Add any javscript your theme requires here -->
+  <script src="/js/main.js"></script>
+
+</head>
+<body id="body">
+  <!-- Put your theme's inside this script tag. The script tag will 
+       prevent issues with quote escaping and invalid markup. -->
+  <script id="theme" type="text/x-handlebars-template">
+
+  <div id="masthead">
+    {{logo height="80"}} {{{title}}}
+  </div>
+	
+	<div id="main">
+		<div class="bg">
+			<div class="wrap">
+			{{#region "columnizer" id="main-region" max_cols="3" dummy_content="T-1|T-2,T-1|T-3,T-2,T-1|I-1|I-2|I-3|I-2,I-1|I-3,I-2,I-1|V-1|V-2|V-2,V-1|V-3,V-2,V-1|D-1|D-2|D-2,D-1|D-3,D-2,D-1|E-1|E-2|E-2,E-1|E-3,E-2,E-1" default_content="I-1,T-1"}}
+			  {{#asset "text" size="1"}}
+				{{{title}}}
+				{{{body}}}
+			  {{/asset}}
+			  {{#asset "text" size="2"}}
+				{{{title}}}
+				{{{body}}}
+			  {{/asset}}
+			  {{#asset "text" size="3"}}
+				{{{title}}}
+				{{{body}}}
+			  {{/asset}}
+			  
+			  {{#asset "imagegroup" size="1"}}
+				{{{title}}}
+				{{#if_many images}}
+				  <div class="slideshow">
+					<div class="images many">
+					{{#each images}}
+					 {{#if link}}
+					  <a href="{{{link}}}">
+					  	<img alt="{{{title}}}" src="{{{resize original_url width=393}}}" width="393" />
+				  	</a>
+          {{else}}
+					  <a href="{{{original_url}}}" class="fancybox">
+					  	<img alt="{{{title}}}" src="{{{resize original_url width=393}}}" width="393" />
+  					</a>
+          {{/if}}
+					{{/each}}
+					</div>
+				  </div>
+				{{else}}
+				  {{#each images}}
+				    {{#if link}}
+    					<a href="{{{link}}}" class="single-image">
+		  			  	<img alt="{{{title}}}" src="{{{resize original_url width=829}}}" width="829" />
+			     		</a>
+            {{else}}
+    					<a href="{{{original_url}}}" class="single-image fancybox">
+		  			  	<img alt="{{{title}}}" src="{{{resize original_url width=829}}}" width="829" />
+			     		</a>
+            {{/if}}
+				  {{/each}}
+				{{/if_many}}
+				{{{description}}}
+			  {{/asset}}
+
+			  {{#asset "imagegroup" size="2"}}
+				{{{title}}}
+				{{#if_many images}}
+				  <div class="slideshow">
+					<div class="images">
+					{{#each images}}
+					 {{#if link}}
+  					  <a href="{{{link}}}">
+  					  	<img alt="{{{title}}}" src="{{{resize original_url width=389}}}" width="389" />
+  					  </a>
+					  {{else}}
+    					<a href="{{{original_url}}}" class="single-image fancybox">
+		  			  	<img alt="{{{title}}}" src="{{{resize original_url width=389}}}" width="389" />
+			     		</a>
+            {{/if}}
+					{{/each}}
+					</div>
+				  </div>
+				{{else}}
+				  {{#each images}}
+            {{#if link}}
+    					<a href="{{{link}}}" class="single-image">
+    						<img alt="{{{title}}}" src="{{{resize original_url width=389}}}" width="389" />
+    					</a>
+            {{else}}
+    					<a href="{{{original_url}}}" class="single-image fancybox">
+    						<img alt="{{{title}}}" src="{{{resize original_url width=389}}}" width="389" />
+    					</a>
+            {{/if}}            
+				  {{/each}}
+				{{/if_many}}
+				{{{description}}}
+			  {{/asset}}
+        
+			  {{#asset "imagegroup" size="3"}}
+				{{{title}}}
+				{{#if_many images}}
+				  {{#if images.2.original_url}}
+					<div class="grid">
+					  <div class="images">
+					  {{#each images}}
+					   {{#if link}}
+    						<a href="{{{link}}}">
+    							<img alt="{{{title}}}" src="{{{resize original_url width=109 height=109}}}" width="109" height="109" />
+    						</a>
+              {{else}}
+    						<a href="{{{original_url}}}" class="fancybox">
+    							<img alt="{{{title}}}" src="{{{resize original_url width=109 height=109}}}" width="109" height="109" />
+    						</a>
+              {{/if}}              
+					  {{/each}}
+					  </div>
+					</div>
+				  {{else}}
+					{{#each images}}
+            {{#if link}}
+  					  <a href="{{{link}}}" class="single-image">
+  					  	<img alt="{{{title}}}" src="{{{resize original_url width=248}}}" width="248" />
+  					  </a>
+					  {{else}}
+  					  <a href="{{{original_url}}}" class="single-image fancybox">
+  					  	<img alt="{{{title}}}" src="{{{resize original_url width=248}}}" width="248" />
+  					  </a>
+            {{/if}}					  
+					{{/each}}
+				  {{/if}}
+				{{else}}
+				  {{#each images}}
+            {{#if link}}
+    					<a href="{{{link}}}" class="single-image">
+    						<img alt="{{{title}}}" src="{{{resize original_url width=248}}}" width="248" />
+    					</a>
+  					{{else}}
+    					<a href="{{{original_url}}}" class="single-image fancybox">
+    						<img alt="{{{title}}}" src="{{{resize original_url width=248}}}" width="248" />
+    					</a>
+            {{/if}}
+				  {{/each}}
+				{{/if_many}}
+				{{{description}}}
+			  {{/asset}}
+
+			  {{#asset "videogroup" size="1"}}
+				{{{title}}}
+				{{{videoplayer videos width="836" height="627" resolution="large"}}}
+				{{{description}}}
+			  {{/asset}}
+			  {{#asset "videogroup" size="2"}}
+				{{{title}}}
+				{{{videoplayer videos width="393" height="295" resolution="medium"}}}
+				{{{description}}}
+			  {{/asset}}
+			  {{#asset "videogroup" size="3"}}
+				{{{title}}}
+				{{{videoplayer videos width="249" height="187" resolution="small"}}}
+				{{{description}}}
+			  {{/asset}}
+
+			  {{#asset "documentgroup" size="1"}}
+				{{{title}}}
+				<ul class="documents">
+				{{#each documents}}
+				<li>
+				  	<a href="{{{original_url}}}">
+						<div class="title">
+							<span class="file-extension file-extension-{{extension}}"></span>
+							<span class="name">{{{title}}}</span>
+							({{{format_file_size source_file_size}}} {{{extension}}})
+						</div>
+					</a>
+				</li>
+				{{/each}}
+				</ul>
+				<div class="">{{{description}}}</div>
+			  {{/asset}}
+			  {{#asset "documentgroup" size="2"}}
+				{{{title}}}
+				<ul class="documents">
+				{{#each documents}}
+				<li>
+				  	<a href="{{{original_url}}}">
+						<div class="title">
+							<span class="file-extension file-extension-{{extension}}"></span>
+							<span class="name">{{{title}}} ({{{extension}}})</span>
+						</div>
+					</a>
+				</li>
+				{{/each}}
+				</ul>
+				<div class="">{{{description}}}</div>
+			  {{/asset}}
+			  {{#asset "documentgroup" size="3"}}
+				{{{title}}}
+				<ul class="documents">
+				{{#each documents}}
+				<li>
+				  	<a href="{{{original_url}}}">
+						<div class="title">
+							<span class="file-extension file-extension-{{extension}}"></span>
+							<span class="name">{{{title}}} ({{{extension}}})</span>
+						</div>
+					</a>
+				</li>
+				{{/each}}
+				</ul>
+				<div class="">{{{description}}}</div>
+			  {{/asset}}
+
+			  {{#asset "embedgroup" size="1" width="829"}}
+				{{{title}}}
+				{{#each embeds}}
+				  {{{html}}}
+				{{/each}}
+				{{{description}}}
+			  {{/asset}}
+			  {{#asset "embedgroup" size="2" width="393"}}
+				{{{title}}}
+				{{#each embeds}}
+				  {{{html}}}
+				{{/each}}
+				{{{description}}}
+			  {{/asset}}
+			  {{#asset "embedgroup" size="3" width="249"}}
+				{{{title}}}
+				{{#each embeds}}
+				  {{{html}}}
+				{{/each}}
+				{{{description}}}
+			  {{/asset}}
+
+			{{/region}}
+			</div>
+		</div>
+
+
+
+	<div id="footer">
+		<div class="wrap">
+			{{#region "columnizer" id="footer-region" max_cols="2" dummy_content="T-1|T-2,T-1|I-1|I-2|I-2,I-1|V-1|V-2|V-2,V-1|D-1|D-2|D-2,D-1|E-1|E-2|E-2,E-1" default_content="I-1,T-1"}}
+
+			  {{#asset "text" size="1"}}
+				{{{title}}}
+				{{{body}}}
+			  {{/asset}}
+			  {{#asset "text" size="2"}}
+				{{{title}}}
+				{{{body}}}
+			  {{/asset}}
+			  {{#asset "text" size="3"}}
+				{{{title}}}
+				{{{body}}}
+			  {{/asset}}
+			  
+			  {{#asset "imagegroup" size="1"}}
+				{{{title}}}
+				{{#if_many images}}
+				  <div class="slideshow">
+					<div class="images">
+					{{#each images}}
+            {{#if link}}
+  					  <a href="{{{link}}}" class=""><img alt="{{{title}}}" src="{{{resize original_url width=829 height=829}}}" width="829" height="829" /></a>
+					  {{else}}
+  					  <a href="{{{original_url}}}" class="fancybox"><img alt="{{{title}}}" src="{{{resize original_url width=829 height=829}}}" width="829" height="829" /></a>
+	           {{/if}}				  
+					{{/each}}
+					</div>
+				  </div>
+				{{else}}
+				  {{#each images}}
+				    {{#if link}}
+    					<a href="{{{link}}}" class=" single-image"><img alt="{{{title}}}" src="{{{resize original_url width=829 height=829}}}" width="829" height="829" /></a>
+  					{{else}}
+    					<a href="{{{original_url}}}" class=" single-image fancybox"><img alt="{{{title}}}" src="{{{resize original_url width=829 height=829}}}" width="829" height="829" /></a>
+            {{/if}}  					
+				  {{/each}}
+				{{/if_many}}
+				{{{description}}}
+			  {{/asset}}
+			  {{#asset "imagegroup" size="2"}}
+				{{{title}}}
+				{{#if_many images}}
+				  <div class="slideshow">
+					<div class="images">
+					{{#each images}}
+					 {{#if link}}
+  					  <a href="{{{link}}}" class=""><img alt="{{{title}}}" src="{{{resize original_url width=389}}}" width="389" /></a>
+            {{else}}
+  					  <a href="{{{original_url}}}" class="fancybox"><img alt="{{{title}}}" src="{{{resize original_url width=389}}}" width="389" /></a>
+            {{/if}}            
+					{{/each}}
+					</div>
+				  </div>
+				{{else}}
+				  {{#each images}}
+				    {{#if link}}
+    					<a href="{{{link}}}" class="single-image"><img alt="{{{title}}}" src="{{{resize original_url width=389}}}" width="389" /></a>
+  					{{else}}
+							<a href="{{{original_url}}}" class="fancybox single-image"><img alt="{{{title}}}" src="{{{resize original_url width=389}}}" width="389" /></a>
+            {{/if}}
+				  {{/each}}
+				{{/if_many}}
+				{{{description}}}
+			  {{/asset}}
+
+			  {{#asset "videogroup" size="1"}}
+				{{{title}}}
+				{{{videoplayer videos width="829" height="622" resolution="large"}}}
+				{{{description}}}
+			  {{/asset}}
+			  {{#asset "videogroup" size="2"}}
+				{{{title}}}
+				{{{videoplayer videos width="393" height="295" resolution="medium"}}}
+				{{{description}}}
+			  {{/asset}}
+
+			  {{#asset "documentgroup" size="1"}}
+				{{{title}}}
+				<ul class="documents">
+				{{#each documents}}
+				<li>
+				  	<a href="{{{original_url}}}">
+						<div class="title">
+							<span class="file-extension file-extension-{{extension}}"></span>
+							<span class="name">{{{title}}}</span>
+							({{{format_file_size source_file_size}}} {{{extension}}})
+						</div>
+					</a>
+				</li>
+				{{/each}}
+				</ul>
+				<div class="">{{{description}}}</div>
+			  {{/asset}}
+			  {{#asset "documentgroup" size="2"}}
+				{{{title}}}
+				<ul class="documents">
+				{{#each documents}}
+				<li>
+				  	<a href="{{{original_url}}}">
+						<div class="title">
+							<span class="file-extension file-extension-{{extension}}"></span>
+							<span class="name">{{{title}}} ({{{extension}}})</span>
+						</div>
+					</a>
+				</li>
+				{{/each}}
+				</ul>
+				<div class="">{{{description}}}</div>
+			  {{/asset}}
+
+			  {{#asset "embedgroup" size="1" width="829"}}
+				{{{title}}}
+				{{#each embeds}}
+				  {{{html}}}
+				{{/each}}
+				{{{description}}}
+			  {{/asset}}
+			  {{#asset "embedgroup" size="2" width="393"}}
+				{{{title}}}
+				{{#each embeds}}
+				  {{{html}}}
+				{{/each}}
+				{{{description}}}
+			  {{/asset}}
+
+			{{/region}}
+
+      <div id="meta">
+        {{pop_links}}
+        {{sharing}}
+      </div>
+		</div>
+	</div>
+
+
+	</div>
+
+
+  </script>
+</body>
+</html>
